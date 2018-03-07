@@ -1,6 +1,8 @@
-# Hacker Noon Blockchain
+# Hackernoon Blockchain
 Simply following this [post](https://hackernoon.com/learn-blockchains-by-building-one-117428612f46).
 
+# Prerequisite
+Python 3.6 or higher
 
 # Usage
 ```
