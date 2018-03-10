@@ -44,11 +44,11 @@ class Blockchain(object):
             block = chain[current_index]
             print(f'{last_block}')
             print(f'{block}')
-            print(f'\n-------------\n') 
-            
+            print(f'\n-------------\n')
+
             if block['previous_hash'] != self.hash(last_block):
                 return False
-            
+
             if not self.valid_proof(last_block['proof'], block['proof']):
                 return False
 
@@ -83,13 +83,12 @@ class Blockchain(object):
                 if length > max_length and self.valid_chain(chain):
                     max_length = length
                     new_chain = chain
-                
+
         if new_chain:
             self.chain = new_chain
             return True
 
         return False
-
 
     def new_block(self, proof, previous_hash=None):
         """
@@ -245,10 +244,10 @@ def register_nodes():
     nodes = values.get('nodes')
     if nodes is None:
         return "Error: Please supply a valid list of nodes", 400
-    
+
     for node in nodes:
         blockchain.register_node(node)
-    
+
     response = {
         'message': 'New nodes have been added',
         'total_nodes': list(blockchain.nodes),
