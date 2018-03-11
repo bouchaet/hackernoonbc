@@ -28,6 +28,9 @@ Python 3.6 or higher
 > docker build -t bouchaet/hackernoonbc:stretch . -f Dockerfile.stretch
 > docker push bouchaet/hackernoonbc:stretch
 ```
+> In fact, the image will use resin base image that is not base on stretch 
+specifically on the _a_ debian distro. 
+More information on [dockerhub.io/resin](https://hub.docker.com/r/resin/raspberrypi3-python/).
 
 
 # Kubernetes (rasp-pi cluster)
@@ -37,7 +40,18 @@ Python 3.6 or higher
 > kubectl rollout status deployment hackernoonbc-deployment 
 > kubectl create -f k8s-service.yaml
 ```
+> This image can also be runned locally on a amd64 architecture by activating `qemu-user-static` on linux. Information is available on [multiarch/qemu-user-static](https://github.com/multiarch/qemu-user-static/blob/master/README.md). Basically, the command is:   
+`> docker run --rm --privileged multiarch/qemu-user-static:register --reset`
 ## Delete
 ```
-> kubectl delete deployment hackernoonbc-deployment
+> kubectl delete deployment hackernoonbc-deployment 
+
+```
+
+## Get an image hash tag
+Here's how to pull the latest image from a kubectl deployment. The hash tag will force
+a pull of the image if the it has changed. Using a tag will (say latest) will pull the image
+from the cache if available.
+```
+> docker inspect --format='{{.RepoDigests}}' bouchaet/hackernoonbc:stretch
 ```
