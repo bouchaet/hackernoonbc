@@ -12,7 +12,6 @@ Python 3.6 or higher
 > python blockchain.py
 ```
 
-
 # Docker
 ## Run locally
 ```
@@ -28,8 +27,8 @@ Python 3.6 or higher
 > docker build -t bouchaet/hackernoonbc:stretch . -f Dockerfile.stretch
 > docker push bouchaet/hackernoonbc:stretch
 ```
-> In fact, the image will use resin base image that is not base on stretch 
-specifically on the _a_ debian distro. 
+> In fact, the image will use **resin.io** base image that is not build from stretch 
+specifically but on the _a_ debian distro. 
 More information on [dockerhub.io/resin](https://hub.docker.com/r/resin/raspberrypi3-python/).
 
 
@@ -45,13 +44,12 @@ More information on [dockerhub.io/resin](https://hub.docker.com/r/resin/raspberr
 ## Delete
 ```
 > kubectl delete deployment hackernoonbc-deployment 
-
 ```
 
-## Get an image hash tag
-Here's how to pull the latest image from a kubectl deployment. The hash tag will force
-a pull of the image if the it has changed. Using a tag will (say latest) will pull the image
-from the cache if available.
+## Get an image hash tag. 
+Use the hash tag to pull the latest image from a kubectl deployment. However, other techniques may be available. 
+The hash tag will force a pull if image was changed. Using a tag, like _:latest_, will pull the image
+from the cache if present locally. Thus, remote updates will not be pulled. [see discussion](https://github.com/kubernetes/kubernetes/issues/33664)
 ```
 > docker inspect --format='{{.RepoDigests}}' bouchaet/hackernoonbc:stretch
 ```
