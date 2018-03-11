@@ -7,7 +7,7 @@ Python 3.6 or higher
 # Usage
 ```
 > python --version
-> virtualenv env && env/scripts/activate
+> virtualenv env && . env/scripts/activate
 > pip3 install -r requirements.txt
 > python blockchain.py
 ```
