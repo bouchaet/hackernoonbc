@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: hackernoonbc-deployment
+  labels:
+    app: hackernoonbc
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: hackernoonbc
+  template:
+    metadata:
+      labels:
+        app: hackernoonbc
+    spec:
+      containers:
+      - name: hackernoonbc-pod
+        image: bouchaet/hackernoonbc@sha256:ec6c4b9d1465e1b669ed295e5462074758725fd1c95ad03d52304419cca17455
+        ports:
+        - containerPort: 5000

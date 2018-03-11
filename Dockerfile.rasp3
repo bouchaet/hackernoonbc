@@ -1,0 +1,15 @@
+FROM resin/raspberrypi3-alpine-python:3
+
+RUN uname -m && \
+    python -V && \
+    pip -V
+
+WORKDIR /root/
+
+COPY blockchain.py .
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+COPY . .
+
+CMD ["python", "./blockchain.py"]
