@@ -28,7 +28,7 @@ Python 3.6 or higher
 > docker push bouchaet/hackernoonbc:stretch
 ```
 > In fact, the image will use **resin.io** base image that is not build from stretch 
-specifically but on the _a_ debian distro. 
+specifically but on _a_ debian distro. 
 More information on [dockerhub.io/resin](https://hub.docker.com/r/resin/raspberrypi3-python/).
 
 
