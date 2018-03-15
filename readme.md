@@ -30,7 +30,8 @@ Python 3.6 or higher
 > In fact, the image will use **resin.io** base image that is not build from stretch 
 specifically but on _a_ debian distro. 
 More information on [dockerhub.io/resin](https://hub.docker.com/r/resin/raspberrypi3-python/).
-
+> This image can also be runned locally on a amd64 architecture by activating `qemu-user-static` on linux. Information is available on [multiarch/qemu-user-static](https://github.com/multiarch/qemu-user-static/blob/master/README.md). Basically, the command is:   
+`> docker run --rm --privileged multiarch/qemu-user-static:register --reset`
 
 # Kubernetes (rasp-pi cluster)
 ## Creation
@@ -39,8 +40,6 @@ More information on [dockerhub.io/resin](https://hub.docker.com/r/resin/raspberr
 > kubectl rollout status deployment hackernoonbc-deployment 
 > kubectl create -f k8s-service.yaml
 ```
-> This image can also be runned locally on a amd64 architecture by activating `qemu-user-static` on linux. Information is available on [multiarch/qemu-user-static](https://github.com/multiarch/qemu-user-static/blob/master/README.md). Basically, the command is:   
-`> docker run --rm --privileged multiarch/qemu-user-static:register --reset`
 ## Delete
 ```
 > kubectl delete deployment hackernoonbc-deployment 
