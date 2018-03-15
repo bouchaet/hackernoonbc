@@ -1,4 +1,5 @@
 # Hackernoon Blockchain
+[![Build Status](https://travis-ci.org/bouchaet/hackernoonbc.svg?branch=master)](https://travis-ci.org/bouchaet/hackernoonbc)  
 Simply following this [post](https://hackernoon.com/learn-blockchains-by-building-one-117428612f46).
 
 # Prerequisite
